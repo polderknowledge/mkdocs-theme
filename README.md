@@ -1,18 +1,10 @@
-# Zend Framework MkDocs Theme
+# Polder Knowledge MkDocs Theme
 
-This repository contains the MkDocs theme proposed for Zend Framework
+This repository contains the MkDocs theme proposed for Polder Knowledge
 documentation.
 
-It is forked from the dist-build of the [Cinder](tps://github.com/chrissimpkins/cinder)
-theme, by Chris Simpkins, with a number of modifications, including:
-
-- Footer modifications to link to the ZF project.
-- Some CSS modifications for navbar color, default text size and line spacing,
-  etc.
-- Updates to use a [prismjs](http://prismjs.com) build for syntax highlighting.
-- Addition of navigation pager at bottom of page, but also at top when the menu
-  is collapsed.
-- CSS for landing pages.
+It is forked from the dist-build of the [ZF theme](tps://github.com/chrissimpkins/cinder)
+theme, by the Zend Framework team. All credits go to them, we modified the theme for our needs.
 
 The theme itself resides in `theme/`. Also included are tools for building and
 deploying documentation.
@@ -123,11 +115,11 @@ The results look like this:
 ```yaml
 script:
   - <do something ...>
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh | bash ; fi
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/polderknowledge/mkdoc-theme/master/theme-installer.sh | bash ; fi
 ```
 
 This will run the code to install MkDocs and its extensions, and, if the
-zf-mkdoc-theme is not yet installed, download the latest version and install it.
+mkdoc-theme is not yet installed, download the latest version and install it.
 
 ### 6. Build and deploy the documentation on success
 
@@ -135,7 +127,7 @@ Now we'll add the `after_success` script:
 
 ```yaml
 after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then ./zf-mkdoc-theme/deploy.sh ; fi
+  - if [[ $DEPLOY_DOCS == "true" ]]; then ./mkdoc-theme/deploy.sh ; fi
 ```
 
 The above runs *only* if the build has been a success, and will not change the
@@ -146,13 +138,13 @@ success status.
 Chances are that the component you're using is already caching Composer
 dependencies, so you'll likely already have a `cache` section to your
 `.travis.yml`. Regardless, you'll need entries for `$HOME/.local` and
-`zf-mkdoc-theme` to speed up your builds:
+`mkdoc-theme` to speed up your builds:
 
 ```yaml
 cache:
   directories:
     - $HOME/.local
-    - zf-mkdoc-theme
+    - mkdoc-theme
 ```
 
 ## A note on caching
