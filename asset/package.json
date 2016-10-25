@@ -1,21 +1,21 @@
 {
-  "name": "zf-mkdoc-theme",
+  "name": "pk-mkdoc-theme",
   "version": "1.0.0",
-  "description": "ZF MkDocs theme Assets",
+  "description": "Polder Knowledge MkDocs theme Assets",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zendframework/zf-mkdoc-theme.git"
+    "url": "git+https://github.com/polderknowledge/mkdoc-theme.git"
   },
   "author": "",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/zendframework/zf-mkdoc-theme/issues"
+    "url": "https://github.com/polderknowledge/mkdoc-theme/issues"
   },
-  "homepage": "http://framework.zend.com",
+  "homepage": "http://polderknowledge.com",
   "devDependencies": {
     "anchor-js": "^3.2.1",
     "bootstrap-sass": "^3.3.6",

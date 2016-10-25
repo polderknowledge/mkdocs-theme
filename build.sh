@@ -26,18 +26,18 @@ echo "Building documentation"
 cp mkdocs.yml mkdocs.yml.orig
 echo "site_url: ${SITE_URL}"
 echo "extra:" >> mkdocs.yml
-cat zf-mkdoc-theme/assets.yml >> mkdocs.yml
+cat ${SCRIPT_PATH}/assets.yml >> mkdocs.yml
 echo "markdown_extensions:" >> mkdocs.yml
 echo "    - markdown.extensions.codehilite:" >> mkdocs.yml
 echo "        use_pygments: False" >> mkdocs.yml
 echo "    - pymdownx.superfences" >> mkdocs.yml
-echo "theme_dir: zf-mkdoc-theme/theme" >> mkdocs.yml
+echo "theme_dir: ${SCRIPT_PATH}/theme" >> mkdocs.yml
 
 # Preserve files if necessary (as mkdocs build --clean removes all files)
-if [ -e .zf-mkdoc-theme-preserve ]; then
+if [ -e .mkdoc-theme-preserve ]; then
     mkdir .preserve
-    for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
-        cp doc/html/${PRESERVE} .preserve/
+    for PRESERVE in $(cat .mkdoc-theme-preserve); do
+        cp docs/html/${PRESERVE} .preserve/
     done
 fi
 
@@ -47,9 +47,9 @@ mkdocs build --clean
 mv mkdocs.yml.orig mkdocs.yml
 
 # Restore files if necessary
-if [ -e .zf-mkdoc-theme-preserve ]; then
-    for PRESERVE in $(cat .zf-mkdoc-theme-preserve); do
-        mv .preserve/${PRESERVE} doc/html/${PRESERVE}
+if [ -e .mkdoc-theme-preserve ]; then
+    for PRESERVE in $(cat .mkdoc-theme-preserve); do
+        mv .preserve/${PRESERVE} docs/html/${PRESERVE}
     done
     rm -Rf ./preserve
 fi

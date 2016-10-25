@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
  */
 
-$docPath = realpath(getcwd() . '/doc');
+$docPath = realpath(getcwd() . '/docs');
 
 $rdi = new RecursiveDirectoryIterator($docPath . '/html');
 $rii = new RecursiveIteratorIterator($rdi, RecursiveIteratorIterator::SELF_FIRST);
