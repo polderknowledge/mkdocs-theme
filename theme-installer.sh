@@ -23,9 +23,9 @@ pip install --user mkdocs
 pip install --user pymdown-extensions
 
 # Conditionally install zf-mkdoc-theme.
-if [[ ! -d "mkdoc-theme/theme" ]];then
+if [[ ! -d "mkdocs-theme/theme" ]];then
     echo "Downloading mkdoc-theme..." ;
-    mkdir -p mkdoc-theme ;
+    mkdir -p mkdocs-theme ;
     curl -s -L https://github.com/polderknowledge/mkdocs-theme/releases/latest | egrep -o '/polderknowledge/mkdocs-theme/archive/[0-9]*\.[0-9]*\.[0-9]*\.tar\.gz' | head -n1 | wget -O mkdocs-theme.tgz --base=https://github.com/ -i - ;
     (
         cd mkdocs-theme ;
