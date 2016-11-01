@@ -26,12 +26,12 @@ pip install --user pymdown-extensions
 if [[ ! -d "mkdoc-theme/theme" ]];then
     echo "Downloading mkdoc-theme..." ;
     mkdir -p mkdoc-theme ;
-    curl -s -L https://github.com/polderknowledge/mkdoc-theme/releases/latest | egrep -o '/polderknowledge/mkdoc-theme/archive/[0-9]*\.[0-9]*\.[0-9]*\.tar\.gz' | head -n1 | wget -O mkdoc-theme.tgz --base=https://github.com/ -i - ;
+    curl -s -L https://github.com/polderknowledge/mkdocs-theme/releases/latest | egrep -o '/polderknowledge/mkdocs-theme/archive/[0-9]*\.[0-9]*\.[0-9]*\.tar\.gz' | head -n1 | wget -O mkdocs-theme.tgz --base=https://github.com/ -i - ;
     (
-        cd mkdoc-theme ;
-        tar xzf ../mkdoc-theme.tgz --strip-components=1 ;
+        cd mkdocs-theme ;
+        tar xzf ../mkdocs-theme.tgz --strip-components=1 ;
     );
-    echo "Finished downloading and installing mkdoc-theme" ;
+    echo "Finished downloading and installing mkdocs-theme" ;
 fi
 
 exit 0;
