@@ -33,9 +33,9 @@ SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd -P)"
 rev=$(git rev-parse --short HEAD)
 
 # Initialize gh-pages checkout
-mkdir -p doc/html
+mkdir -p docs/html
 (
-    cd doc/html
+    cd docs/html
     git init
     git config user.name "${GH_USER_NAME}"
     git config user.email "${GH_USER_EMAIL}"
@@ -49,7 +49,7 @@ ${SCRIPT_PATH}/build.sh
 
 # Commit and push the documentation to gh-pages
 (
-    cd doc/html
+    cd docs/html
     touch .
     git add -A .
     git commit -m "Rebuild pages at ${rev}"

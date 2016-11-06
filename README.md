@@ -115,7 +115,7 @@ The results look like this:
 ```yaml
 script:
   - <do something ...>
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/polderknowledge/mkdoc-theme/master/theme-installer.sh | bash ; fi
+  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then travis_retry curl -sSL https://raw.githubusercontent.com/polderknowledge/mkdocs-theme/master/theme-installer.sh | bash ; fi
 ```
 
 This will run the code to install MkDocs and its extensions, and, if the
@@ -127,7 +127,7 @@ Now we'll add the `after_success` script:
 
 ```yaml
 after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then ./mkdoc-theme/deploy.sh ; fi
+  - if [[ $DEPLOY_DOCS == "true" ]]; then ./mkdocs-theme/deploy.sh ; fi
 ```
 
 The above runs *only* if the build has been a success, and will not change the
@@ -144,7 +144,7 @@ dependencies, so you'll likely already have a `cache` section to your
 cache:
   directories:
     - $HOME/.local
-    - mkdoc-theme
+    - mkdocs-theme
 ```
 
 ## A note on caching
