@@ -8,10 +8,12 @@
 
 $docPath = realpath(getcwd() . '/docs');
 
-$target = file_get_contents($docPath . '/html/index.html');
-$source = file_get_contents($docPath . '/book/index.html');
+if (file_exists($docPath . '/book/index.html')) {
+    $target = file_get_contents($docPath . '/html/index.html');
+    $source = file_get_contents($docPath . '/book/index.html');
 
-file_put_contents(
-    $docPath . '/html/index.html',
-    preg_replace('#\<\!-- content:begin --\>.*\<\!-- content:end --\>#s', $source, $target)
-);
+    file_put_contents(
+        $docPath . '/html/index.html',
+        preg_replace('#\<\!-- content:begin --\>.*\<\!-- content:end --\>#s', $source, $target)
+    );
+}
