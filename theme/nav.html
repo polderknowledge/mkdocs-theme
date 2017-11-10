@@ -3,7 +3,7 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            {% if include_nav or repo_url %}
+            {% if nav or config.repo_url %}
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -22,7 +22,7 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            {% if include_nav %}
+            {% if nav %}
                 <!-- Main navigation -->
                 <ul class="nav navbar-nav">
                 {% for nav_item in nav %}
@@ -56,12 +56,12 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                {% if repo_url %}
+                {% if config.repo_url %}
                     <li>
-                        <a href="{{ repo_url }}">
-                            {% if repo_name == 'GitHub' %}
+                        <a href="{{ config.repo_url }}">
+                            {% if config.repo_name == 'GitHub' %}
                                 <i class="fa fa-github"></i>
-                            {% elif repo_name == 'Bitbucket' %}
+                            {% elif config.repo_name == 'Bitbucket' %}
                                 <i class="fa fa-bitbucket"></i>
                             {% endif %}
                             {{ repo_name }}
